@@ -7,6 +7,7 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
+    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/accounts/login/'
     LOG_EMAIL_FORM = (By.CSS_SELECTOR, '#id_login-username')
     LOG_PASSWORD_FORM = (By.CSS_SELECTOR, '#id_login-password')
     LOG_BUTTON_FORM = (By.CSS_SELECTOR, '[name=login_submit]')
