@@ -21,10 +21,10 @@ def solve_quiz_and_get_code(self):
 
 class BasePage:
 
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, url):
         self.browser = browser
         self.url = url
-        self.browser.implicitly_wait(timeout)
+        # self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
@@ -34,6 +34,7 @@ class BasePage:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
             return False
+
         return True
 
     def is_not_element_present(self, how, what, timeout=4):
