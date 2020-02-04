@@ -1,11 +1,6 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/'
-
-
 class LoginPageLocators:
     PAGE_LINK = 'http://selenium1py.pythonanywhere.com/accounts/login/'
     LOG_EMAIL_FORM = (By.CSS_SELECTOR, '#id_login-username')
@@ -25,3 +20,9 @@ class ProductPageLocators:
     NAME_IN_NOTIFICATION = (By.CSS_SELECTOR, '#messages :first-child > div > strong')
     PRODUCT_PRICE_NOTIFICATION = (By.CSS_SELECTOR, '.alertinner > p > strong')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages :first-child > .alertinner')
+
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/'

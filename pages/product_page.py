@@ -7,7 +7,7 @@ class ProductPage(BasePage):
     def should_be_adding_product_to_basket(self):
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         add_to_basket_button.click()
-        solve_quiz_and_get_code(self)
+        # solve_quiz_and_get_code(self)
 
     def should_be_same_names_in_basket_and_notification(self):
         product_name_main = self.browser.find_element(*ProductPageLocators.NAME_OF_PRODUCT)
