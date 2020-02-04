@@ -18,9 +18,10 @@ class LoginPageLocators:
 
 
 class ProductPageLocators:
-    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/'
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
     NAME_OF_PRODUCT = (By.CSS_SELECTOR, '.product_main h1')
     PRODUCT_PRICE_MAIN = (By.CSS_SELECTOR, '.product_main .price_color')
     NAME_IN_NOTIFICATION = (By.CSS_SELECTOR, '#messages :first-child > div > strong')
     PRODUCT_PRICE_NOTIFICATION = (By.CSS_SELECTOR, '.alertinner > p > strong')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages :first-child > .alertinner')
