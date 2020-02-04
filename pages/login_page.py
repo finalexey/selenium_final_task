@@ -10,12 +10,10 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-
         current_link = self.browser.current_url
         assert 'login' in current_link, 'Invalid link'
 
     def should_be_login_form(self):
-
         assert (self.is_element_present(*LoginPageLocators.LOG_EMAIL_FORM) and
                 self.is_element_present(*LoginPageLocators.LOG_PASSWORD_FORM) and
                 self.is_element_present(*LoginPageLocators.LOG_BUTTON_FORM)), \
