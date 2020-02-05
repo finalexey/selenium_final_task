@@ -36,3 +36,4 @@ class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     PAGE_LINK = 'http://selenium1py.pythonanywhere.com/'
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
