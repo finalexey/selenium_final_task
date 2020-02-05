@@ -3,11 +3,45 @@ import pytest
 from .pages.locators import ProductPageLocators, MainPageLocators
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
 
-#link_offers = ['0', '1', '2', '3', '4', '5', '6', pytest.param('7', marks=pytest.mark.xfail), '8', '9']
+
+class TestUserAddToBasketFromProductPage:
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        email = str(time.time()) + "@fakemail.org"
+        password = 'Qq485627fhdfj_'
+        link = 'http://selenium1py.pythonanywhere.com/accounts/login/'
+        page = LoginPage(browser, link)
+        page.open()
+        page.register_new_user(email, password)
+        time.sleep(2)
+        page.should_be_authorized_user()
+
+    def test_user_cant_see_success_message(self, browser):
+
+        link = ProductPageLocators.PAGE_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        time.sleep(3)
+        page.should_not_be_success_message()
+
+    def test_user_can_add_product_to_basket(self, browser):
+
+        link = ProductPageLocators.PAGE_LINK
+        # link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{offer}'
+        page = ProductPage(browser, link)
+        page.open()
+        time.sleep(3)
+        page.should_not_be_success_message()
+        page.should_be_adding_product_to_basket()
+        time.sleep(3)
+        page.should_be_same_names_in_basket_and_notification()
+        page.should_be_same_prices_in_basket_and_notification()
 
 
-#@pytest.mark.parametrize('offer', link_offers)
+# link_offers = ['0', '1', '2', '3', '4', '5', '6', pytest.param('7', marks=pytest.mark.xfail), '8', '9']
+# @pytest.mark.parametrize('offer', link_offers)
 def test_guest_can_add_product_to_basket(browser):
     link = ProductPageLocators.PAGE_LINK
     # link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{offer}'
