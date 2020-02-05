@@ -1,6 +1,16 @@
 from selenium.webdriver.common.by import By
 
 
+class MainPageLocators:
+    PAGE_LINK = 'http://selenium1py.pythonanywhere.com/'
+    BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-group > a')
+
+
+class BasketPageLocators:
+    ITEMS_TO_BUY = (By.CSS_SELECTOR, '.row > h2')
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, 'content_inner, p')
+
+
 class LoginPageLocators:
     PAGE_LINK = 'http://selenium1py.pythonanywhere.com/accounts/login/'
     LOG_EMAIL_FORM = (By.CSS_SELECTOR, '#id_login-username')
