@@ -15,7 +15,6 @@ class TestUserAddToBasketFromProductPage:
         page = LoginPage(browser, link)
         page.open()
         page.register_new_user(email, password)
-        time.sleep(2)
         page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
@@ -23,7 +22,6 @@ class TestUserAddToBasketFromProductPage:
         link = ProductPageLocators.PAGE_LINK
         page = ProductPage(browser, link)
         page.open()
-        time.sleep(3)
         page.should_not_be_success_message()
 
     @pytest.mark.need_review
@@ -32,10 +30,8 @@ class TestUserAddToBasketFromProductPage:
         link = ProductPageLocators.PAGE_LINK
         page = ProductPage(browser, link)
         page.open()
-        time.sleep(3)
         page.should_not_be_success_message()
         page.should_be_adding_product_to_basket()
-        time.sleep(3)
         page.should_be_same_names_in_basket_and_notification()
         page.should_be_same_prices_in_basket_and_notification()
 
